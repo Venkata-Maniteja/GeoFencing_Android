@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="locationtest" tests="1" skipped="0" failures="0" errors="0" timestamp="2015-06-16T19:11:59" hostname="Teja" time="6.35">
+  <properties/>
+  <testcase name="shouldReturnTheLatestLocation" classname="locationtest" time="6.35"/>
+  <system-out><![CDATA[DEBUG: Loading resources for com.example.geofencing from ./src/main/res...
+DEBUG: Loading resources for android from jar:/Users/VenkataManiteja/.m2/repository/org/robolectric/android-all/4.3_r2-robolectric-0/android-all-4.3_r2-robolectric-0.jar!/res...
+expected location is 12.020.0actual location is 12.020.0]]></system-out>
+  <system-err><![CDATA[WARNING: no system properties value for ro.build.date.utc
+]]></system-err>
+</testsuite>

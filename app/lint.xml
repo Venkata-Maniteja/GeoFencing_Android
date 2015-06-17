@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <issue id="HardcodedText">
+        <ignore path="res/layout/listview_row.xml" />
+    </issue>
+    <issue id="SpUsage">
+        <ignore path="res/layout/listview_row.xml" />
+    </issue>
+</lint>

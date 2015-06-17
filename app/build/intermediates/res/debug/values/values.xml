@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/VenkataManiteja/Downloads/GeoFencing/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/Users/VenkataManiteja/Downloads/GeoFencing/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="GPSAlertDialogMessage">GPS is not enabled. Do you want to go to setting menu</string>
+    <string name="GPSAlertDialogTitle">GPS is setting</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">DevTest</string>
+    <string name="get_current_location">Get Current Location</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="radius">Radius</string>
+    <string name="save">Save</string>
+    <string name="title_activity_scanning">Scanning</string>
+    <string name="title_activity_settings">Settings</string>
+    <!-- From: file:/Users/VenkataManiteja/Downloads/GeoFencing/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>
