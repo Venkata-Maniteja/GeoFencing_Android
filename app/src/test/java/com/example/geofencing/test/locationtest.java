@@ -2,24 +2,24 @@ package com.example.geofencing.test; /**
  * Created by VenkataManiteja on 15-06-16.
  */
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.net.Socket;
-import java.net.UnknownHostException;
+import static org.hamcrest.CoreMatchers.*;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import org.robolectric.Robolectric;
 import android.content.Context;
-import android.view.View;
-
+import android.widget.Button;
+import android.widget.EditText;
 import com.example.geofencing.Settings;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+
+import com.example.geofencing.R;
 
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLocationManager;
@@ -30,30 +30,20 @@ import org.robolectric.shadows.ShadowLocationManager;
 
 public class locationtest  {
     private Settings mainActivity;
+    private Button btnGetCoords;
+    private EditText latitudeTextField;
+    private EditText longitueTextField;
 
-  /*  public void sendLocation() {
-        try {
-            double latitude=12.0; double longitude=12.0;
-            Socket socket = new Socket("localhost", 5554); // usually 5554
-            socket.setKeepAlive(true);
-            String str = "geo fix " + longitude + " " + latitude ;
-            Writer w = new OutputStreamWriter(socket.getOutputStream());
-            System.out.println("string is " +str);
-            w.write(str + "\r\n");
-            w.flush();
-        }
-        catch (UnknownHostException e) {
-            throw new RuntimeException(e);
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
   @Before
   public void setUp() {
       mainActivity = new Settings();
       mainActivity=Robolectric.buildActivity(Settings.class).create().get();
+
   }
+    @After
+    public void tearDown() throws Exception {
+    }
+
   @Test
     public void shouldReturnTheLatestLocation() {
         LocationManager locationManager = (LocationManager)
@@ -75,6 +65,26 @@ public class locationtest  {
         location.setLongitude(longitude);
         location.setTime(System.currentTimeMillis());
         return location;
+    }
+
+
+    @Test
+    public void textFieldCheck(){
+
+        btnGetCoords = (Button) mainActivity.findViewById(R.id.getlocation);
+        latitudeTextField = (EditText) mainActivity.findViewById(R.id.latitude);
+        assertThat((String) btnGetCoords.getText(), equalTo("Get Current Location"));
+    }
+
+    // Sanity check for the layout
+    @Test
+    public void shouldHaveButtonThatSays() throws Exception{
+        // Verifies the button and text field exist
+       // assertThat(btnGetCoords, notNullValue());
+       // assertNotNull(latitudeTextField);
+       // assertNotNull(longitueTextField);
+        // Verifies the text of the button
+
     }
 
 }
