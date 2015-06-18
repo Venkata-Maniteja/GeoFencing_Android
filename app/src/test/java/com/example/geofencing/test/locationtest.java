@@ -2,27 +2,27 @@ package com.example.geofencing.test; /**
  * Created by VenkataManiteja on 15-06-16.
  */
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.example.geofencing.R;
+import com.example.geofencing.Settings;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
-import static org.hamcrest.CoreMatchers.*;
-import android.location.Location;
-import android.location.LocationManager;
 import org.robolectric.Robolectric;
-import android.content.Context;
-import android.widget.Button;
-import android.widget.EditText;
-import com.example.geofencing.Settings;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
-
-import com.example.geofencing.R;
-
+import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLocationManager;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 
 @RunWith(RobolectricTestRunner.class)
@@ -49,13 +49,13 @@ public class locationtest  {
         LocationManager locationManager = (LocationManager)
                 Robolectric.application.getSystemService(Context.LOCATION_SERVICE);
         ShadowLocationManager shadowLocationManager = Robolectric.shadowOf(locationManager);
-        Location expectedLocation = location(locationManager.NETWORK_PROVIDER, 12.0, 20.0);
+      Location expectedLocation = location(LocationManager.NETWORK_PROVIDER, 12.0, 20.0);
 
         shadowLocationManager.simulateLocation(expectedLocation);
 
-      System.out.print("expected location is "+expectedLocation.getLatitude()+expectedLocation.getLongitude());
+      System.out.print("expected location is " + expectedLocation.getLatitude() + expectedLocation.getLongitude());
         Location actualLocation = mainActivity.latestLocation();
-       System.out.print("actual location is "+actualLocation.getLatitude()+actualLocation.getLongitude());
+      System.out.print("actual location is " + actualLocation.getLatitude() + actualLocation.getLongitude());
         assertEquals(expectedLocation, actualLocation);
     }
 
@@ -76,15 +76,6 @@ public class locationtest  {
         assertThat((String) btnGetCoords.getText(), equalTo("Get Current Location"));
     }
 
-    // Sanity check for the layout
-    @Test
-    public void shouldHaveButtonThatSays() throws Exception{
-        // Verifies the button and text field exist
-       // assertThat(btnGetCoords, notNullValue());
-       // assertNotNull(latitudeTextField);
-       // assertNotNull(longitueTextField);
-        // Verifies the text of the button
 
-    }
 
 }
